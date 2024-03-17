@@ -5,24 +5,21 @@ import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import eye from './assets/images/eye.png';
 import DownloadPage from './pages/DownloadPage';
-import { Link } from "react-router-dom";
-
-
-
-
+import { Link } from 'react-router-dom';
 
 
 function LoginPage( data ){
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
-    const [showPassword, setShowPassword] = useState(false);
-    
+    let [showPassword, setShowPassword] = useState(false);
+
     const handleLogin = () => {
-        username && password? data({username,password}) : alert("username atau password kosong")
+        username && password? alert("Berhasil") : alert("username atau password kosong")
     };
-    
+
 
     return(
+        <>
         <Form>
             <Form.Group className="mb-3" controlId="formBasicEmail">
                 <Form.Label>Username</Form.Label>
@@ -42,10 +39,18 @@ function LoginPage( data ){
                 onClick={() => setShowPassword(!showPassword)}
                 ><img src={eye} alt="Show Password" className='w-25 '/>
                 </button>
+                <Button variant='secondary' onClick={handleLogin}>Validate</Button>
 
             </Form.Group>
-
         </Form>
+
+        {/* <div>
+            <Link to={DownloadPage}>
+                <button>menuju halaman download</button>
+            </Link>
+        </div> */}
+
+        </>
 
         
 
